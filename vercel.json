@@ -5,7 +5,7 @@
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "https://isskbtblanhkczgxffid.supabase.co",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_Svjlq1HqJ-rXv9qfEJvGTA_jef8ULcG"
+    "NEXT_PUBLIC_SUPABASE_URL": "https://lpoljlwtnmexzxjrbmse.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_PrQ0YmRjKNpkQaeyIK3cBA_luv3XDWX"
   }
 }
