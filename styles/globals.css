@@ -1,0 +1,203 @@
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #021024;
+  --bg-secondary: #052659;
+  --mid-blue: #5483B3;
+  --soft-blue: #7DA0CA;
+  --accent: #C1E8FF;
+  --glass: rgba(5,38,89,0.6);
+  --glass-border: rgba(125,160,202,0.2);
+  --shadow-card: 0 8px 32px rgba(2,16,36,0.45);
+  --perspective: 900px;
+}
+
+*, *::before, *::after { box-sizing: border-box; padding: 0; margin: 0; }
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--accent);
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--mid-blue); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--soft-blue); }
+
+/* ─── Glass card ─── */
+.glass-card {
+  background: rgba(5,38,89,0.5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(125,160,202,0.18);
+  border-radius: 18px;
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.28s ease,
+              border-color 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px) translateZ(4px) scale(1.005);
+  border-color: rgba(193,232,255,0.28);
+  box-shadow: 0 16px 48px rgba(84,131,179,0.2), 0 0 0 1px rgba(193,232,255,0.05);
+}
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #7DA0CA, #C1E8FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(84,131,179,0.3));
+}
+
+/* ─── Input fields ─── */
+.input-field {
+  background: rgba(5,38,89,0.6);
+  border: 1px solid rgba(125,160,202,0.28);
+  border-radius: 12px;
+  color: #C1E8FF;
+  padding: 10px 14px;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  outline: none;
+}
+.input-field:focus {
+  border-color: rgba(193,232,255,0.55);
+  box-shadow: 0 0 0 3px rgba(193,232,255,0.08), 0 4px 16px rgba(84,131,179,0.15);
+  transform: translateY(-1px);
+}
+.input-field::placeholder { color: rgba(125,160,202,0.4); }
+.input-field option { background: #052659; color: #C1E8FF; }
+
+/* ─── Primary button ─── */
+.btn-primary {
+  background: linear-gradient(135deg, #5483B3, #7DA0CA);
+  color: #021024;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  transform: translateY(0);
+  box-shadow: 0 5px 0 rgba(2,16,36,0.5), 0 8px 24px rgba(84,131,179,0.35);
+}
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 0 rgba(2,16,36,0.45), 0 14px 36px rgba(84,131,179,0.5);
+}
+.btn-primary:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 2px 0 rgba(2,16,36,0.5), 0 4px 12px rgba(84,131,179,0.2);
+}
+
+/* ─── Sidebar active ─── */
+.sidebar-active {
+  background: linear-gradient(135deg, rgba(84,131,179,0.28), rgba(125,160,202,0.14));
+  border-left: 3px solid #C1E8FF;
+  color: #C1E8FF;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ─── Badges ─── */
+.badge-income {
+  background: rgba(75,192,192,0.18);
+  color: #4BC0C0;
+  border: 1px solid rgba(75,192,192,0.3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.badge-expense {
+  background: rgba(255,99,132,0.18);
+  color: #FF6384;
+  border: 1px solid rgba(255,99,132,0.3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ─── Modal ─── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,16,36,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ─── Shimmer loading skeleton ─── */
+.shimmer {
+  background: linear-gradient(90deg, rgba(5,38,89,0.4) 25%, rgba(84,131,179,0.12) 50%, rgba(5,38,89,0.4) 75%);
+  background-size: 200% 100%;
+  animation: shimmerSlide 1.6s infinite;
+}
+@keyframes shimmerSlide {
+  0%{background-position:-200% 0}100%{background-position:200% 0}
+}
+
+/* ─── 3D keyframes ─── */
+@keyframes fadeIn {
+  0%{opacity:0}100%{opacity:1}
+}
+@keyframes slideUp {
+  0%{opacity:0;transform:translateY(22px) scale(0.97)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes float3D {
+  0%,100%{transform:perspective(600px) translateY(0) rotateX(0deg)}
+  50%{transform:perspective(600px) translateY(-6px) rotateX(2deg)}
+}
+@keyframes depthPop {
+  0%{opacity:0;transform:perspective(800px) translateZ(-40px) scale(0.9)}
+  100%{opacity:1;transform:perspective(800px) translateZ(0) scale(1)}
+}
+@keyframes tiltIn {
+  0%{opacity:0;transform:perspective(700px) rotateY(-8deg) translateX(-20px)}
+  100%{opacity:1;transform:perspective(700px) rotateY(0deg) translateX(0)}
+}
+
+.animate-fade-in { animation: fadeIn 0.55s ease-in-out; }
+.animate-slide-up { animation: slideUp 0.45s cubic-bezier(0.16,1,0.3,1); }
+.animate-float-3d { animation: float3D 5s ease-in-out infinite; }
+.animate-depth-pop { animation: depthPop 0.6s cubic-bezier(0.16,1,0.3,1); }
+.animate-tilt-in { animation: tiltIn 0.55s cubic-bezier(0.16,1,0.3,1); }
+
+/* ─── 3D card effect ─── */
+.card-3d-hover {
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+  transform-style: preserve-3d;
+}
+.card-3d-hover:hover {
+  transform: perspective(600px) rotateX(-3deg) rotateY(3deg) translateY(-4px) translateZ(8px);
+  box-shadow: 8px 20px 48px rgba(2,16,36,0.5), -2px -2px 0 rgba(193,232,255,0.06);
+}
+
+/* ─── Misc ─── */
+.pulse-border { animation: pulseBorder 2.5s infinite; }
+@keyframes pulseBorder {
+  0%,100%{border-color:rgba(125,160,202,0.18)}
+  50%{border-color:rgba(193,232,255,0.4)}
+}
